@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
     material: 'Natural & Synthetic Fiber Blend',
     moq: '500 Pcs / Box',
     popular: true,
-    image: '/products/series-444.svg',
+    image: '/products/series-444.webp',
     svgType: 'flat-brush'
   },
   {
@@ -59,7 +59,7 @@ export const PRODUCTS: Product[] = [
     material: 'High-Density Tapered Synthetic Bristles',
     moq: '300 Pcs',
     popular: true,
-    image: '/products/asian-series.svg',
+    image: '/products/asian-series.webp',
     svgType: 'wide-brush'
   },
   {
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     ],
     material: 'Pure White Natural Bristle Blend',
     moq: '400 Pcs',
-    image: '/products/d2-classic.svg',
+    image: '/products/d2-classic.webp',
     svgType: 'round-brush'
   },
   {
@@ -101,7 +101,7 @@ export const PRODUCTS: Product[] = [
     ],
     material: 'Soft Tapered Synthetic Hair',
     moq: '600 Pcs',
-    image: '/products/jyoti-xxx.svg',
+    image: '/products/jyoti-xxx.webp',
     svgType: 'narrow-brush'
   },
   {
@@ -123,7 +123,7 @@ export const PRODUCTS: Product[] = [
     material: 'Thick White Natural Bristle + Reinforced Core',
     moq: '200 Pcs',
     popular: true,
-    image: '/products/jumbo-star.svg',
+    image: '/products/jumbo-star.webp',
     svgType: 'jumbo-brush'
   },
 
@@ -147,7 +147,7 @@ export const PRODUCTS: Product[] = [
     material: 'Woven Polyamide Fiber (18mm Pile)',
     moq: '250 Pcs',
     popular: true,
-    image: '/products/polyamide-roller.svg',
+    image: '/products/polyamide-roller.webp',
     svgType: 'roller'
   },
   {
@@ -168,7 +168,7 @@ export const PRODUCTS: Product[] = [
     ],
     material: 'Natural Wool & Tough Poly Blend (22mm Pile)',
     moq: '200 Pcs',
-    image: '/products/woolen-roller.svg',
+    image: '/products/woolen-roller.webp',
     svgType: 'woolen-roller'
   },
   {
@@ -190,7 +190,7 @@ export const PRODUCTS: Product[] = [
     material: 'Ultra-Fine Microfiber (9mm Short Pile)',
     moq: '300 Pcs',
     popular: true,
-    image: '/products/microfiber-roller.svg',
+    image: '/products/microfiber-roller.webp',
     svgType: 'roller'
   },
   {
@@ -211,7 +211,7 @@ export const PRODUCTS: Product[] = [
     ],
     material: 'Compact High-Density Foam / Microfiber',
     moq: '500 Pcs',
-    image: '/products/pencil-roller.svg',
+    image: '/products/pencil-roller.webp',
     svgType: 'pencil-roller'
   },
 

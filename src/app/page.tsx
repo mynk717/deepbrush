@@ -1,210 +1,244 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { COMPANY_INFO, PRODUCTS } from '@/data/products';
+import ProductCard from '@/components/ProductCard';
 import { 
   ShieldCheck, 
   Factory, 
   Truck, 
-  CheckCircle, 
   ArrowRight, 
-  PhoneCall, 
   HelpCircle,
-  Award,
-  Layers,
-  Sparkles
+  PackageCheck,
+  Building2,
+  PhoneCall
 } from 'lucide-react';
 
 export default function Home() {
   const featuredProducts = PRODUCTS.filter(p => p.popular);
 
   return (
-    <div className="w-full">
-      {/* Hero Section */}
-      <section className="bg-slate-900 text-white py-16 md:py-24 px-4 sm:px-8 border-b border-slate-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
-        <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs px-3.5 py-1.5 rounded-full font-medium">
-              <Factory className="w-3.5 h-3.5" /> Direct Factory Manufacturer • Raipur, Chhattisgarh
-            </div>
-            
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              High Class Painting & <span className="text-amber-400">Artist Brushes</span> — Factory Direct Supply
-            </h1>
-
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Deep Brush Industries produces commercial grade paint brushes, polyamide rollers, and texture tools for wholesale distributors, paint dealers, and contractors across India.
-            </p>
-
-            {/* B2B Trust Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-              <div className="bg-slate-800/80 border border-slate-700 p-3 rounded-lg text-xs">
-                <span className="text-amber-400 font-bold block text-sm">GST Registered</span>
-                <span className="text-slate-400">{COMPANY_INFO.gstin}</span>
-              </div>
-              <div className="bg-slate-800/80 border border-slate-700 p-3 rounded-lg text-xs">
-                <span className="text-emerald-400 font-bold block text-sm">Pan-India Wholesale</span>
-                <span className="text-slate-400">Direct Transport Delivery</span>
-              </div>
-              <div className="bg-slate-800/80 border border-slate-700 p-3 rounded-lg text-xs col-span-2 sm:col-span-1">
-                <span className="text-blue-400 font-bold block text-sm">Custom Branding</span>
-                <span className="text-slate-400">Bulk OEM Packaging</span>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link 
-                href="/rfq" 
-                className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3.5 rounded-lg shadow-lg flex items-center gap-2 transition"
-              >
-                Request Wholesale Quote <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link 
-                href="/products" 
-                className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-6 py-3.5 rounded-lg transition"
-              >
-                Browse Catalog
-              </Link>
-            </div>
+    <div className="w-full bg-slate-50">
+      
+      {/* 1. Hero Artwork Section */}
+      <section className="w-full bg-slate-950 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          {/* Responsive Hero Image Container */}
+          <div className="relative w-full h-[260px] sm:h-[380px] md:h-[480px] lg:h-[580px]">
+            <Image
+              src="/hero-section.webp"
+              alt="Deep Brush Industries painting brushes and rollers used by professional painters"
+              fill
+              priority
+              sizes="100vw"
+              className="object-contain md:object-cover object-top md:object-center"
+            />
           </div>
-
-          {/* Quick Wholesale Card */}
-          <div className="lg:col-span-5 bg-slate-800 border border-slate-700 p-6 sm:p-8 rounded-2xl shadow-2xl relative">
-            <div className="absolute -top-3 -right-3 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wide">
-              B2B Portal
-            </div>
-            
-            <h3 className="text-xl font-bold text-white mb-2">Instant Factory Wholesale Order</h3>
-            <p className="text-slate-300 text-xs mb-6">Connect directly with Proprietor Hardeep Singh Saini for bulk rate inquiries.</p>
-
-            <div className="space-y-4 text-sm">
-              <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-slate-200">Series 444 & Asian Series</h4>
-                  <p className="text-slate-400 text-xs">Standard & High-Density Flat Brushes (1" to 4")</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-slate-200">Polyamide & Microfiber Rollers</h4>
-                  <p className="text-slate-400 text-xs">Smooth & Rough Wall Painting Sleeves (2"x9", 1"x4")</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-slate-200">Texture Tools & Rustic Trowels</h4>
-                  <p className="text-slate-400 text-xs">Putty Application & Decorative Surface Prep</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col gap-3">
-              <a 
-                href={`https://wa.me/${COMPANY_INFO.whatsapp.replace('+', '')}?text=Hello%20Hardeep%20Singh%20Saini,%20I%20am%20interested%20in%20a%20wholesale%20deal%20for%20Deep%20Brush%20products.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 text-center rounded-lg shadow flex items-center justify-center gap-2 transition text-sm"
-              >
-                Chat on WhatsApp Now
-              </a>
-              <a 
-                href={`tel:${COMPANY_INFO.phone}`}
-                className="w-full bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold py-2.5 text-center rounded-lg flex items-center justify-center gap-2 transition text-xs"
-              >
-                <PhoneCall className="w-4 h-4 text-amber-400" /> Direct Call: {COMPANY_INFO.phone}
-              </a>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10">
+      {/* 2. Clear Wholesale CTA Panel (Outside Artwork) */}
+      <section className="bg-slate-900 text-white border-b border-slate-800 py-8 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-1 text-center md:text-left">
+            <span className="text-amber-400 text-xs font-bold uppercase tracking-wider flex items-center justify-center md:justify-start gap-1.5">
+              <Factory className="w-4 h-4" /> B2B Wholesale Portal &middot; Raipur Unit
+            </span>
+            <h2 className="text-xl sm:text-2xl font-black text-white">
+              Direct Factory Supply for Hardware Stores & Wholesale Buyers
+            </h2>
+            <p className="text-slate-300 text-xs sm:text-sm">
+              Bulk transport delivery across India. Direct inquiries with Proprietor Hardeep Singh Saini.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
+            <Link 
+              href="/rfq" 
+              className="flex-1 sm:flex-initial bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 text-sm transition"
+            >
+              Request Wholesale Quote <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link 
+              href="/products" 
+              className="flex-1 sm:flex-initial bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-5 py-3.5 rounded-xl text-sm transition flex items-center justify-center"
+            >
+              Browse Catalog
+            </Link>
+            <a 
+              href={`https://wa.me/${COMPANY_INFO.whatsapp.replace('+', '')}?text=Hello%20Hardeep%20Singh%20Saini,%20I%20am%20interested%20in%20a%20wholesale%20deal%20for%20Deep%20Brush%20products.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-3.5 rounded-xl shadow text-sm flex items-center justify-center gap-2 transition"
+            >
+              WhatsApp Inquiry
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Trust Strip */}
+      <section className="bg-white border-b border-slate-200 py-6 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div className="p-3 space-y-1">
+            <ShieldCheck className="w-6 h-6 text-amber-500 mx-auto" />
+            <h4 className="text-xs font-bold text-slate-900">GST Registered Supplier</h4>
+            <p className="text-[11px] text-slate-500">Full invoice compliance</p>
+          </div>
+          <div className="p-3 space-y-1">
+            <Factory className="w-6 h-6 text-amber-500 mx-auto" />
+            <h4 className="text-xs font-bold text-slate-900">Direct Factory Unit</h4>
+            <p className="text-[11px] text-slate-500">Manufactured in Raipur</p>
+          </div>
+          <div className="p-3 space-y-1">
+            <Truck className="w-6 h-6 text-amber-500 mx-auto" />
+            <h4 className="text-xs font-bold text-slate-900">Pan-India Transport</h4>
+            <p className="text-[11px] text-slate-500">Safe bulk dispatch</p>
+          </div>
+          <div className="p-3 space-y-1">
+            <PackageCheck className="w-6 h-6 text-amber-500 mx-auto" />
+            <h4 className="text-xs font-bold text-slate-900">Custom Branding</h4>
+            <p className="text-[11px] text-slate-500">Bulk OEM packaging</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Product Categories */}
+      <section className="py-14 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+          <span className="text-amber-600 font-bold uppercase tracking-wider text-xs block">Manufacturing Divisions</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Our Core Product Categories</h2>
+          <p className="text-slate-600 text-xs sm:text-sm">Built to handle Indian wall paints, harsh enamels, and heavy contractor use.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Link href="/products?cat=paint-brushes" className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-amber-400 transition space-y-3 group">
+            <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700 font-bold group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+              01
+            </div>
+            <h3 className="text-lg font-bold text-slate-900">Paint Brushes</h3>
+            <p className="text-slate-600 text-xs leading-relaxed">
+              Series 444, ASIAN Series, D-2 Classic, JYOTI Precision, and JUMBO STAR commercial broad wall brushes.
+            </p>
+            <span className="text-amber-600 font-bold text-xs inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Explore Brushes <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link href="/products?cat=roller-brushes" className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-amber-400 transition space-y-3 group">
+            <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700 font-bold group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+              02
+            </div>
+            <h3 className="text-lg font-bold text-slate-900">Paint Rollers</h3>
+            <p className="text-slate-600 text-xs leading-relaxed">
+              Heavy-duty Polyamide wall rollers, Woolen masonry rollers, Super Fine Microfiber, and Reach Strip Pencil rollers.
+            </p>
+            <span className="text-amber-600 font-bold text-xs inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Explore Rollers <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link href="/products?cat=texture-tools" className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-amber-400 transition space-y-3 group">
+            <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700 font-bold group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+              03
+            </div>
+            <h3 className="text-lg font-bold text-slate-900">Texture Tools & Trowels</h3>
+            <p className="text-slate-600 text-xs leading-relaxed">
+              Stainless steel Rustic Trowels for wall putty application, Venetian plastering, and decorative surface prep.
+            </p>
+            <span className="text-amber-600 font-bold text-xs inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Explore Trowels <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* 5. Featured Products Grid */}
+      <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
           <div>
-            <span className="text-amber-600 font-bold uppercase tracking-wider text-xs block mb-1">Factory Catalog</span>
+            <span className="text-amber-600 font-bold uppercase tracking-wider text-xs block mb-1">Fast Moving Stock</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Featured Manufacturing Series</h2>
           </div>
-          <Link href="/products" className="text-amber-600 hover:text-amber-700 font-bold text-sm flex items-center gap-1 mt-2 md:mt-0">
-            View All Products <ArrowRight className="w-4 h-4" />
+          <Link href="/products" className="bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center gap-1.5 transition">
+            View All Products Catalog <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Responsive Grid: 1 col mobile, 2 col tablet, 3 col desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
           {featuredProducts.map((product) => (
-            <div key={product.id} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-              <div>
-                <div className="flex justify-between items-start mb-3">
-                  <span className="bg-amber-100 text-amber-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded">
-                    {product.series}
-                  </span>
-                  <span className="text-slate-500 text-xs font-medium">MOQ: {product.moq}</span>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{product.name}</h3>
-                <p className="text-slate-600 text-xs leading-relaxed mb-4">{product.description}</p>
-                
-                <div className="border-t border-slate-100 pt-3 mb-4 space-y-1.5 text-xs text-slate-700">
-                  <div className="flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                    <span><strong>Sizes:</strong> {product.sizes.join(', ')}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-amber-500" />
-                    <span><strong>Material:</strong> {product.material}</span>
-                  </div>
-                </div>
-              </div>
-
-              <Link 
-                href={`/rfq?product=${product.id}`}
-                className="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 rounded-lg text-xs transition"
-              >
-                Inquire Wholesale Price
-              </Link>
-            </div>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </section>
 
-      {/* AI Q&A / Search Snippet Section */}
-      <section className="bg-slate-100 py-16 px-4 sm:px-8 border-y border-slate-200">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-slate-900 mb-2 flex items-center justify-center gap-2">
-              <HelpCircle className="w-6 h-6 text-amber-600" /> Frequently Asked Questions & Wholesale Details
-            </h2>
-            <p className="text-slate-600 text-sm">Key information for buyers, distributors, and hardware stores.</p>
+      {/* 6. Wholesale Ordering Process */}
+      <section className="bg-white border-y border-slate-200 py-16 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span className="text-amber-600 font-bold uppercase tracking-wider text-xs block">Simple B2B Workflow</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">How Wholesale Ordering Works</h2>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-              <h3 className="font-bold text-slate-900 text-base mb-2">Q: Who is the leading paint brush manufacturer in Raipur, Chhattisgarh?</h3>
-              <p className="text-slate-700 text-sm leading-relaxed">
-                <strong>A:</strong> Deep Brush Industries (Proprietor: Hardeep Singh Saini, GSTIN: 22BJEPS5887HIZS) is a primary direct manufacturer and wholesale distributor of painting brushes, polyamide rollers, and rustic trowel tools located in Telibandha, Raipur, Chhattisgarh.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+            <div className="p-6 bg-slate-50 border border-slate-100 rounded-2xl space-y-3">
+              <span className="w-8 h-8 bg-amber-500 text-slate-950 font-black rounded-full inline-flex items-center justify-center text-sm">1</span>
+              <h3 className="font-bold text-slate-900 text-sm">Select Series & Sizes</h3>
+              <p className="text-xs text-slate-600">Browse our product catalog or select items for your custom RFQ.</p>
             </div>
-
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-              <h3 className="font-bold text-slate-900 text-base mb-2">Q: What product series and roller sizes does Deep Brush Industries manufacture?</h3>
-              <p className="text-slate-700 text-sm leading-relaxed">
-                <strong>A:</strong> We manufacture Flat Brushes (Series 444, Asian, Classic D-2, Jyoti, Jumbo 5"+), Polyamide Rollers (1"x2", 1"x4", 1"x6", 2"x9"), Woolen Exterior Rollers, Super Fine Microfiber Interior Rollers, and Reach Strip Pencil Rollers.
-              </p>
+            <div className="p-6 bg-slate-50 border border-slate-100 rounded-2xl space-y-3">
+              <span className="w-8 h-8 bg-amber-500 text-slate-950 font-black rounded-full inline-flex items-center justify-center text-sm">2</span>
+              <h3 className="font-bold text-slate-900 text-sm">Send Quantity Inquiry</h3>
+              <p className="text-xs text-slate-600">Connect via WhatsApp or submit our RFQ form with required box quantities.</p>
             </div>
-
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-              <h3 className="font-bold text-slate-900 text-base mb-2">Q: How can I verify the GST registration of Deep Brush Industries?</h3>
-              <p className="text-slate-700 text-sm leading-relaxed">
-                <strong>A:</strong> Deep Brush Industries is registered under GSTIN <strong>22BJEPS5887HIZS</strong>. Our registered address is Behind Anand Kukreja, Shyam Nagar, Telibandha, Raipur, Chhattisgarh 492001. All wholesale invoices carry valid GST compliance.
-              </p>
+            <div className="p-6 bg-slate-50 border border-slate-100 rounded-2xl space-y-3">
+              <span className="w-8 h-8 bg-amber-500 text-slate-950 font-black rounded-full inline-flex items-center justify-center text-sm">3</span>
+              <h3 className="font-bold text-slate-900 text-sm">Factory Quote & GST Invoice</h3>
+              <p className="text-xs text-slate-600">Receive direct factory rates and formal GST invoice terms from Raipur.</p>
+            </div>
+            <div className="p-6 bg-slate-50 border border-slate-100 rounded-2xl space-y-3">
+              <span className="w-8 h-8 bg-amber-500 text-slate-950 font-black rounded-full inline-flex items-center justify-center text-sm">4</span>
+              <h3 className="font-bold text-slate-900 text-sm">Transport Dispatch</h3>
+              <p className="text-xs text-slate-600">Orders packed safely and dispatched via trusted transport carriers.</p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* 7. FAQ */}
+      <section className="py-16 px-4 sm:px-8 max-w-4xl mx-auto space-y-8">
+        <div className="text-center space-y-2">
+          <h2 className="text-2xl font-bold text-slate-900 flex items-center justify-center gap-2">
+            <HelpCircle className="w-6 h-6 text-amber-600" /> Frequently Asked Questions
+          </h2>
+          <p className="text-slate-600 text-xs sm:text-sm">Key information for buyers, distributors, and hardware stores.</p>
+        </div>
+
+        <div className="space-y-4">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <h3 className="font-bold text-slate-900 text-sm sm:text-base">Q: Who is the primary paint brush manufacturer in Raipur, Chhattisgarh?</h3>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              <strong>A:</strong> Deep Brush Industries (Proprietor: Hardeep Singh Saini) is a primary manufacturer and wholesale supplier of paint brushes, polyamide rollers, and texture tools located in Telibandha, Raipur.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <h3 className="font-bold text-slate-900 text-sm sm:text-base">Q: What is the Minimum Order Quantity (MOQ) for wholesale orders?</h3>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              <strong>A:</strong> MOQs depend on the series — typically 200–500 pcs per box/carton for brushes and 200–300 pcs for roller sleeves. Custom bulk orders can be discussed directly.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <h3 className="font-bold text-slate-900 text-sm sm:text-base">Q: Do you supply custom OEM branded packaging?</h3>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              <strong>A:</strong> Yes, we provide custom brand printing and packaging for bulk hardware stockists and regional distributors.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

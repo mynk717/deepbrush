@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { COMPANY_INFO } from '@/data/products';
-import { Phone, Mail, MapPin, ShieldCheck, Factory, Award } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck, Factory, MessageSquare } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -11,39 +11,36 @@ export default function Footer() {
         {/* Company Overview */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-amber-500 rounded flex items-center justify-center font-bold text-slate-950">
-              DB
-            </div>
-            <span className="font-bold text-lg text-white">DEEP BRUSH INDUSTRIES</span>
+            <span className="font-extrabold text-lg text-white">DEEP BRUSH INDUSTRIES</span>
           </div>
           <p className="text-xs text-slate-400 leading-relaxed">
             {COMPANY_INFO.tagline}. Leading B2B manufacturer and distributor of painter brushes, polyamide rollers, and texture tools across India.
           </p>
-          <div className="flex flex-col gap-1.5 text-xs text-slate-400">
-            <span className="flex items-center gap-1.5 text-amber-400">
-              <ShieldCheck className="w-4 h-4" /> GSTIN: {COMPANY_INFO.gstin}
+          <div className="flex flex-col gap-1 text-xs text-slate-400">
+            <span className="text-amber-400 font-semibold">
+              GSTIN: {COMPANY_INFO.gstin}
             </span>
-            <span className="flex items-center gap-1.5 text-slate-300">
-              <Factory className="w-4 h-4 text-emerald-400" /> Proprietor: {COMPANY_INFO.proprietor}
+            <span className="text-slate-300">
+              Proprietor: {COMPANY_INFO.proprietor}
             </span>
           </div>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
+          <h3 className="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Navigation</h3>
           <ul className="space-y-2 text-xs text-slate-400">
             <li><Link href="/" className="hover:text-amber-400 transition">Home</Link></li>
             <li><Link href="/products" className="hover:text-amber-400 transition">All Products & Specifications</Link></li>
             <li><Link href="/about" className="hover:text-amber-400 transition">About Raipur Factory</Link></li>
             <li><Link href="/rfq" className="hover:text-amber-400 transition">Request Wholesale Quote</Link></li>
-            <li><Link href="/contact" className="hover:text-amber-400 transition">Contact Us & GST Copy</Link></li>
+            <li><Link href="/contact" className="hover:text-amber-400 transition">Contact & GST Copy</Link></li>
           </ul>
         </div>
 
         {/* Categories */}
         <div>
-          <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Product Categories</h3>
+          <h3 className="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Product Categories</h3>
           <ul className="space-y-2 text-xs text-slate-400">
             <li><Link href="/products?cat=paint-brushes" className="hover:text-amber-400 transition">Series 444 Flat Brushes</Link></li>
             <li><Link href="/products?cat=paint-brushes" className="hover:text-amber-400 transition">ASIAN & Classic Series</Link></li>
@@ -53,9 +50,9 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact info */}
+        {/* Contact info & WhatsApp CTA */}
         <div>
-          <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Registered Address</h3>
+          <h3 className="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Factory Contact</h3>
           <div className="space-y-3 text-xs text-slate-400">
             <p className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
@@ -69,12 +66,22 @@ export default function Footer() {
               <Mail className="w-4 h-4 text-amber-400 shrink-0" />
               <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-white transition">{COMPANY_INFO.email}</a>
             </p>
+            <div className="pt-2">
+              <a
+                href={`https://wa.me/${COMPANY_INFO.whatsapp.replace('+', '')}?text=Hello%20Deep%20Brush%20Industries,%20I%20want%20to%20inquire%20about%20wholesale%20rates.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-lg text-xs flex items-center justify-center gap-1.5 transition inline-flex"
+              >
+                <MessageSquare className="w-3.5 h-3.5" /> Chat on WhatsApp
+              </a>
+            </div>
           </div>
         </div>
 
       </div>
 
-      {/* Verification & Copyright Bar */}
+      {/* Copyright Bar */}
       <div className="border-t border-slate-900 bg-slate-950 py-4 px-4 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <div>

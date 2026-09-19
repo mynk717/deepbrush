@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { PRODUCTS, COMPANY_INFO } from '@/data/products';
 import ProductPlaceholderImage from '@/components/ProductPlaceholderImage';
@@ -9,12 +10,11 @@ import {
   ShieldCheck, 
   CheckCircle2, 
   Truck, 
-  Layers, 
   Sparkles,
   Zap,
-  PhoneCall,
   Factory,
-  Package
+  Package,
+  Camera
 } from 'lucide-react';
 
 export async function generateStaticParams() {
@@ -35,6 +35,7 @@ export default async function ProductDetailPage({
     notFound();
   }
 
+  const hasRealImage = product.image && product.image.endsWith('.webp') && product.id !== 'rustic-trowel-texture';
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsapp.replace('+', '')}?text=Hello%20Hardeep%20Singh%20Saini,%20I%20want%20to%20place%20a%20bulk%20order%20for%20the%20${encodeURIComponent(product.name)}%20(${encodeURIComponent(product.series)}).`;
 
   return (
@@ -53,24 +54,46 @@ export default async function ProductDetailPage({
       {/* Main Product Hero Layout */}
       <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         
-        {/* Left Column: Visual Vector Placeholder */}
+        {/* Left Column: Visual Image or Vector Placeholder */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-inner bg-slate-50">
-            <ProductPlaceholderImage 
-              type={product.svgType} 
-              name={product.series} 
-              className="w-full h-80 sm:h-96"
-            />
+          <div className="relative w-full h-80 sm:h-96 rounded-2xl border border-slate-200 overflow-hidden shadow-inner bg-slate-50 flex items-center justify-center p-6">
+            {hasRealImage ? (
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-contain p-4"
+              />
+            ) : (
+              <ProductPlaceholderImage 
+                type={product.svgType} 
+                name={product.series} 
+                className="w-full h-full border-none rounded-none"
+              />
+            )}
           </div>
           
-          <div className="bg-amber-50 border border-amber-200/70 rounded-2xl p-4 text-xs text-amber-900 space-y-1">
-            <span className="font-extrabold flex items-center gap-1.5 text-amber-800 uppercase tracking-wide">
-              <Sparkles className="w-4 h-4 text-amber-600" /> Placeholder Image Notice
-            </span>
-            <p className="leading-relaxed">
-              This vector preview highlights technical specs. Official factory product photos can be uploaded directly into <code className="bg-amber-100 px-1 py-0.5 rounded text-[11px]">/public/products/</code> later.
-            </p>
-          </div>
+          {/* Note for temporary crop or placeholder */}
+          {product.id === 'jyoti-xxx' && (
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 text-[11px] text-slate-600 flex items-center gap-2">
+              <Camera className="w-4 h-4 text-amber-500 shrink-0" />
+              <span>Product reference image (factory photo crop).</span>
+            </div>
+          )}
+
+          {/* Placeholder Notice only for rustic trowel */}
+          {!hasRealImage && (
+            <div className="bg-amber-50 border border-amber-200/70 rounded-2xl p-4 text-xs text-amber-900 space-y-1">
+              <span className="font-extrabold flex items-center gap-1.5 text-amber-800 uppercase tracking-wide">
+                <Sparkles className="w-4 h-4 text-amber-600" /> Placeholder Image Notice
+              </span>
+              <p className="leading-relaxed">
+                This vector preview highlights technical specs until an official factory photo for the Rustic Trowel is uploaded.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Right Column: Human Story & Specs */}
