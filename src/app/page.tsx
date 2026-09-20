@@ -58,13 +58,13 @@ export default function Home() {
               href="/rfq" 
               className="flex-1 sm:flex-initial bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 text-sm transition"
             >
-              Request Wholesale Quote <ArrowRight className="w-4 h-4" />
+              <span className="sm:hidden">Get Quote</span><span className="hidden sm:inline">Request Wholesale Quote</span> <ArrowRight className="w-4 h-4" />
             </Link>
             <Link 
               href="/products" 
               className="flex-1 sm:flex-initial bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-5 py-3.5 rounded-xl text-sm transition flex items-center justify-center"
             >
-              Browse Catalog
+              <span className="sm:hidden">Catalog</span><span className="hidden sm:inline">Browse Catalog</span>
             </Link>
             <a 
               href={`https://wa.me/${COMPANY_INFO.whatsapp.replace('+', '')}?text=Hello%20Hardeep%20Singh%20Saini,%20I%20am%20interested%20in%20a%20wholesale%20deal%20for%20Deep%20Brush%20products.`}
@@ -72,7 +72,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-3.5 rounded-xl shadow text-sm flex items-center justify-center gap-2 transition"
             >
-              WhatsApp Inquiry
+              <span className="sm:hidden">WhatsApp</span><span className="hidden sm:inline">WhatsApp Inquiry</span>
             </a>
           </div>
         </div>
