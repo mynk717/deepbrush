@@ -147,7 +147,7 @@ export const PRODUCTS: Product[] = [
     material: 'Woven Polyamide Fiber (18mm Pile)',
     moq: '250 Pcs',
     popular: true,
-    image: '/products/polyamide-roller.webp',
+    image: '/products/red-handled-paint-roller.png',
     svgType: 'roller'
   },
   {
@@ -168,19 +168,19 @@ export const PRODUCTS: Product[] = [
     ],
     material: 'Natural Wool & Tough Poly Blend (22mm Pile)',
     moq: '200 Pcs',
-    image: '/products/woolen-roller.webp',
+    image: '/products/red-handled-wool-paint-roller.png',
     svgType: 'woolen-roller'
   },
   {
     id: 'microfiber-superfine-roller',
-    name: 'Super Fine Interior Microfiber Roller',
+    name: 'Minimalist Smooth Interior Wall Roller',
     series: 'Super Fine Series',
     category: 'roller-brushes',
     shortDesc: 'Ultra-smooth velvet sleeve for spray-like finish on luxury interior paints.',
     description: 'When applying satin, semi-gloss, or velvet sheen interior finishes, roller marks are unpardonable. The Super Fine Microfiber sleeve uses short, dense micro-filaments that lay down paint so smoothly it looks spray-applied.',
     useCase: 'Satin sheen paints, acrylic interior walls, wood lacquers, and metal door panels.',
     painterNote: 'Leaves zero roller lint or stipple bumps on glossy accent walls.',
-    sizes: ['2"x9"'],
+    sizes: ['9" Velvet Finish'],
     features: [
       'Lint-free microfiber filaments for flawless glass-smooth finish',
       'Anti-drip design minimizes splatter on floors and trim',
@@ -190,19 +190,39 @@ export const PRODUCTS: Product[] = [
     material: 'Ultra-Fine Microfiber (9mm Short Pile)',
     moq: '300 Pcs',
     popular: true,
-    image: '/products/microfiber-roller.webp',
+    image: '/products/minimalist-paint-roller-product-shot.png',
+    svgType: 'roller'
+  },
+  {
+    id: 'yellow-striped-roller',
+    name: 'Yellow Striped Contractor Wall Roller',
+    series: 'Yellow Striped Series',
+    category: 'roller-brushes',
+    shortDesc: 'High-visibility multi-layer roller for fast smooth wall coverage.',
+    description: 'Heavy contractor favorite engineered for high paint pickup and smooth release across large commercial interior wall projects.',
+    useCase: 'Contractor bulk painting, commercial interior walls, and primer coats.',
+    painterNote: 'Sturdy steel cage handle with ergonomic yellow grip for all-day rolling.',
+    sizes: ['4"', '9"'],
+    features: [
+      'Multi-filament yellow spiral weave for balanced paint release',
+      'High resistance against water-based emulsions and distempers',
+      'Sturdy chrome-plated 5-wire cage assembly'
+    ],
+    material: 'Woven Acrylic & Polyamide Blend',
+    moq: '300 Pcs',
+    image: '/products/yellow-handled-striped-paint-roller.png',
     svgType: 'roller'
   },
   {
     id: 'pencil-reach-strip-roller',
-    name: 'Reach Strip & Pencil Precision Roller Set',
+    name: 'Reach Strip & Mini Red Precision Roller Set',
     series: 'Reach Strip Series',
     category: 'roller-brushes',
     shortDesc: 'Narrow precision roller for tight spaces behind pipes, grills, and radiators.',
     description: 'Every site has hard-to-reach spots: behind AC pipes, between window grill bars, behind bathroom fixtures, and inside narrow wall recesses. This mini pencil roller set lets painters roll smoothly where standard 9-inch frames simply cannot fit.',
     useCase: 'Behind pipes, metal grills, narrow wall strips, door jambs, and cabinet interiors.',
     painterNote: 'Saves painters from painstakingly dabbing tight spots with a small brush.',
-    sizes: ['1"x2"', '1"x4"', '1"x6"'],
+    sizes: ['2"', '4" Mini'],
     features: [
       'Ultra-slim rod frame for tight 1-inch clearance gaps',
       'Includes high-density micro-sleeves for smooth paint laydown',
@@ -211,14 +231,34 @@ export const PRODUCTS: Product[] = [
     ],
     material: 'Compact High-Density Foam / Microfiber',
     moq: '500 Pcs',
-    image: '/products/pencil-roller.webp',
+    image: '/products/mini-red-handled-paint-roller.png',
+    svgType: 'pencil-roller'
+  },
+  {
+    id: 'pastel-yellow-mini-roller',
+    name: 'Pastel Precision Mini Roller',
+    series: 'Mini Precision Series',
+    category: 'roller-brushes',
+    shortDesc: 'Ultra-light mini roller designed for trim work, borders, and touch-ups.',
+    description: 'Compact 4-inch mini roller equipped with a lightweight pastel grip for fine edge finishing and smooth corner cutting.',
+    useCase: 'Corner borders, cabinet doors, trim panels, and small touch-up areas.',
+    painterNote: 'Extremely nimble for delicate detail rolling where big rollers overwrite edges.',
+    sizes: ['4"'],
+    features: [
+      'Lightweight ergonomic grip for detailed control',
+      'Smooth nap density for uniform paint distribution',
+      'Easy washable core'
+    ],
+    material: 'Dense Micro-Sleeve + ABS Handle',
+    moq: '400 Pcs',
+    image: '/products/pastel-yellow-mini-paint-roller.png',
     svgType: 'pencil-roller'
   },
 
   // Texture Tools & Trowels
   {
     id: 'rustic-trowel-texture',
-    name: 'Rustic Trowel & Decorative Wall Texture Tool',
+    name: 'Rustic Orange-Handled Finishing Trowel',
     series: 'Texture Series',
     category: 'texture-tools',
     shortDesc: 'Stainless steel putty trowel for decorative wall textures and plaster prep.',
@@ -229,13 +269,13 @@ export const PRODUCTS: Product[] = [
     features: [
       'High-grade flexible stainless steel blade — rust-proof',
       'Precision bevel-ground edges for smooth putty skimming',
-      'Ergonomic soft-touch rubber grip reduces hand strain',
+      'Ergonomic orange soft-touch rubber grip reduces hand strain',
       'Heavy-duty aluminium mounting spine for zero blade wobble'
     ],
     material: 'Stainless Steel Blade + Soft-Grip ABS Handle',
     moq: '150 Pcs',
     popular: true,
-    image: '/products/rustic-trowel.svg',
+    image: '/products/rustic-orange-handled-finishing-trowel.png',
     svgType: 'trowel'
   }
 ];

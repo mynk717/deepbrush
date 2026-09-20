@@ -35,7 +35,7 @@ export default async function ProductDetailPage({
     notFound();
   }
 
-  const hasRealImage = product.image && product.image.endsWith('.webp') && product.id !== 'rustic-trowel-texture';
+  const hasRealImage = Boolean(product.image);
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsapp.replace('+', '')}?text=Hello%20Hardeep%20Singh%20Saini,%20I%20want%20to%20place%20a%20bulk%20order%20for%20the%20${encodeURIComponent(product.name)}%20(${encodeURIComponent(product.series)}).`;
 
   return (
@@ -83,14 +83,14 @@ export default async function ProductDetailPage({
             </div>
           )}
 
-          {/* Placeholder Notice only for rustic trowel */}
+          {/* Placeholder Notice only when a product image is unavailable */}
           {!hasRealImage && (
             <div className="bg-amber-50 border border-amber-200/70 rounded-2xl p-4 text-xs text-amber-900 space-y-1">
               <span className="font-extrabold flex items-center gap-1.5 text-amber-800 uppercase tracking-wide">
                 <Sparkles className="w-4 h-4 text-amber-600" /> Placeholder Image Notice
               </span>
               <p className="leading-relaxed">
-                This vector preview highlights technical specs until an official factory photo for the Rustic Trowel is uploaded.
+                This vector preview highlights technical specs until a product image is uploaded.
               </p>
             </div>
           )}
@@ -119,7 +119,7 @@ export default async function ProductDetailPage({
             </h1>
             
             <p className="text-slate-700 text-sm font-semibold italic mt-2 border-l-3 border-amber-500 pl-3">
-              "{product.shortDesc}"
+              &ldquo;{product.shortDesc}&rdquo;
             </p>
           </div>
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { COMPANY_INFO, PRODUCTS } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
+import Carousel3D from '@/components/Carousel3D';
 import { 
   ShieldCheck, 
   Factory, 
@@ -24,14 +25,14 @@ export default function Home() {
       <section className="w-full bg-slate-950 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Responsive Hero Image Container */}
-          <div className="relative w-full h-[260px] sm:h-[380px] md:h-[480px] lg:h-[580px]">
+          <div className="relative w-full aspect-[1976/793] max-h-[580px]">
             <Image
               src="/hero-section.webp"
               alt="Deep Brush Industries painting brushes and rollers used by professional painters"
               fill
               priority
               sizes="100vw"
-              className="object-contain md:object-cover object-top md:object-center"
+              className="object-contain object-center"
             />
           </div>
         </div>
@@ -153,8 +154,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Featured Products Grid */}
-      <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+      {/* 5. Interactive 3D Product Showcase Carousel */}
+      <section className="py-12 bg-gradient-to-b from-slate-900 to-slate-950 text-white overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center space-y-2 mb-4">
+          <span className="text-amber-400 font-bold uppercase tracking-widest text-xs">
+            Interactive Product Showcase
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+            Experience Our Premium Brush Series
+          </h2>
+          <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
+            3D Stage View — Rotate through our top industrial brush and roller models designed for maximum coverage and longevity.
+          </p>
+        </div>
+
+        <Carousel3D products={PRODUCTS} />
+      </section>
+
+      {/* 6. Featured Products Grid */}
+      <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
           <div>
             <span className="text-amber-600 font-bold uppercase tracking-wider text-xs block mb-1">Fast Moving Stock</span>
@@ -165,10 +183,10 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Responsive Grid: 1 col mobile, 2 col tablet, 3 col desktop */}
+        {/* Responsive Grid: 1 col mobile, 2 col tablet, 3 col desktop with staggered entrance */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {featuredProducts.map((product, idx) => (
+            <ProductCard key={product.id} product={product} index={idx} />
           ))}
         </div>
       </section>
