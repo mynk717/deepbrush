@@ -1,3 +1,5 @@
+const brushProduct = (product: Pick<Product, 'id' | 'name' | 'series' | 'shortDesc' | 'useCase' | 'sizes' | 'image' | 'svgType'> & Partial<Product>): Product => ({ category: 'paint-brushes', description: 'This brush family is documented in the updated Deep Brush Industries product list. Final construction details remain subject to factory confirmation.', painterNote: 'Contact Deep Brush Industries for current variant, pack and bulk-order details.', features: ['Family visual supplied for catalog presentation', 'Multiple variants may be available by size or handle', 'Final technical details to be confirmed by the factory'], material: 'TBD', moq: 'TBD', ...product });
+
 export interface Product {
   id: string;
   name: string;
@@ -17,116 +19,123 @@ export interface Product {
 }
 
 export const PRODUCTS: Product[] = [
-  // Paint Brushes
-  {
-    id: 'series-444',
-    name: 'Series 444 Everyday Flat Utility Brush',
-    series: 'Series 444',
-    category: 'paint-brushes',
-    shortDesc: 'The reliable workhorse brush hardware stores restock every season.',
-    description: 'If there is one brush every painter in Raipur keeps in their toolkit, it’s the Series 444. Built with a solid varnished wooden handle and double-epoxy bound bristles, this flat utility brush handles oil enamels, primers, and distemper paints without shedding on fresh walls.',
-    useCase: 'Best for wall priming, door frames, metal grills, and general contract painting.',
-    painterNote: 'Painters love this series because the bristles don’t splay open after a long day in solvent.',
+  // Paint Brushes — updated brush-family taxonomy
+  brushProduct({
+    id: '444-series',
+    name: 'Deep Brush 444 Series Flat Utility Paint Brush',
+    series: '444',
+    shortDesc: 'Standard flat utility brush for general-purpose painting and coating work.',
+    useCase: 'General painting, wall painting, surface coating, touch-up and utility work.',
     sizes: ['1"', '1.5"', '2"', '2.5"', '3"', '4"'],
-    features: [
-      'Double-epoxy set bristles — zero shedding on wet paint',
-      'Smooth varnished wooden handle for non-slip grip',
-      'Rust-proof tinplate ferrule triple-crimped for safety',
-      'Holds high paint volume for fewer dips'
-    ],
-    material: 'Natural & Synthetic Fiber Blend',
-    moq: '500 Pcs / Box',
+    image: '/products/444-series.webp',
+    svgType: 'flat-brush',
     popular: true,
-    image: '/products/series-444.webp',
-    svgType: 'flat-brush'
-  },
-  {
+  }),
+  brushProduct({
     id: 'asian-series',
-    name: 'ASIAN Series Heavy-Density Wall Brush',
-    series: 'ASIAN Series',
-    category: 'paint-brushes',
-    shortDesc: 'Extra bristle density engineered specifically for emulsion wall paints.',
-    description: 'Designed for painters who demand ultra-smooth laydown when applying modern interior emulsions and plastic paints. The ASIAN series packs up to 35% more bristle volume than standard utility brushes, laying down an even coat without stroke marks.',
-    useCase: 'Ideal for premium interior walls, ceiling borders, and smooth plaster finishes.',
-    painterNote: 'Cuts down painting time on broad wall areas because of its deep paint-carrying core.',
-    sizes: ['1"', '2"', '3"', '4"'],
-    features: [
-      '35% higher bristle density for streak-free emulsion coverage',
-      'Split-resistant synthetic tips that stay soft and flexible',
-      'Contoured hardwood handle designed for all-day comfort',
-      'Easy to clean under running water after water-based paint use'
-    ],
-    material: 'High-Density Tapered Synthetic Bristles',
-    moq: '300 Pcs',
-    popular: true,
+    name: 'Deep Brush ASIAN Series Paint Brush',
+    series: 'ASIAN',
+    shortDesc: 'Flat brush family with mid-to-high density synthetic and natural bristle variants.',
+    useCase: 'Wall painting, general surface coating, professional painting and broad-area application.',
+    sizes: ['TBD'],
     image: '/products/asian-series.webp',
-    svgType: 'wide-brush'
-  },
-  {
-    id: 'd2-classic',
-    name: 'D-2 & Classic Comfort-Grip Brush',
-    series: 'D-2 & Classic',
-    category: 'paint-brushes',
-    shortDesc: 'Lightweight ergonomic handle built for full-day interior jobs.',
-    description: 'Fatigue is the enemy of a clean paint edge. The D-2 & Classic series combines a lightweight, molded ergonomic handle with hand-sorted natural white bristles. Perfect for contractors taking on long multi-room interior residential contracts.',
-    useCase: 'Great for interior trim, window frames, baseboards, and cabinet painting.',
-    painterNote: 'Light in the hand, perfect when you’re standing on a ladder painting upper trims for hours.',
-    sizes: ['1"', '1.5"', '2"', '3"', '4"'],
-    features: [
-      'Featherweight ergonomic composite handle',
-      'Hand-sorted pure white bristle blend',
-      'Resin-encapsulated core prevents liquid seepage',
-      'Tapered edge for crisp cutting-in along corners'
-    ],
-    material: 'Pure White Natural Bristle Blend',
-    moq: '400 Pcs',
-    image: '/products/d2-classic.webp',
-    svgType: 'round-brush'
-  },
-  {
-    id: 'jyoti-xxx',
-    name: 'JYOTI / XXX Precision Touch-Up Brush',
-    series: 'JYOTI / XXX',
-    category: 'paint-brushes',
-    shortDesc: 'Slim profile brush for tight corners, trim work, and detailed touch-ups.',
-    description: 'When standard 2-inch brushes are too bulky, the JYOTI precision series gets into tight spots. Designed with a slim wooden ferrule neck, this brush gives painters pinpoint accuracy around window frames, metal grills, electrical switchboards, and narrow wall gaps.',
-    useCase: 'Window grills, switchboard borders, corner cutting-in, and furniture touch-ups.',
-    painterNote: 'The go-to brush for finishing work right before handing over the completed site to the homeowner.',
-    sizes: ['0.5"', '1"', '1.5"'],
-    features: [
-      'Ultra-slim profile for millimeter precision',
-      'Flex-control bristles that don’t bend out of shape',
-      'Long slim wood handle for extended reach in tight gaps',
-      'Clean edge laydown with zero bleed'
-    ],
-    material: 'Soft Tapered Synthetic Hair',
-    moq: '600 Pcs',
-    image: '/products/jyoti-xxx.webp',
-    svgType: 'narrow-brush'
-  },
-  {
-    id: 'star-jumbo-d111',
-    name: 'JUMBO STAR Commercial Broad Wall Brush',
-    series: 'JUMBO / STAR / D-111 / D-10',
-    category: 'paint-brushes',
-    shortDesc: '5"+ extra-wide monster brush built for massive exterior and warehouse walls.',
-    description: 'When speed and coverage are everything, the JUMBO STAR series delivers. Featuring an extra-wide 5" to 6" bristle width and heavy-duty steel reinforced ferrule, this brush covers huge wall surface areas in half the time of standard brushes.',
-    useCase: 'Warehouse exteriors, boundary walls, commercial facade painting, and whitewashing.',
-    painterNote: 'Built tough for rough Indian exterior walls. It takes a beating and keeps going.',
-    sizes: ['4"', '5"', '6"'],
-    features: [
-      'Massive 5"+ surface reach for maximum square-foot coverage',
-      'Heavy-gauge steel ferrule double-riveted to solid wood block',
-      'High-capacity reservoir holds heavy exterior paints and whitewashes',
-      'Designed for rough plaster and brickwork'
-    ],
-    material: 'Thick White Natural Bristle + Reinforced Core',
-    moq: '200 Pcs',
+    svgType: 'wide-brush',
     popular: true,
-    image: '/products/jumbo-star.webp',
-    svgType: 'jumbo-brush'
-  },
+  }),
+  brushProduct({
+    id: 'd-2-series',
+    name: 'Deep Brush D-2 Series Paint Brush',
+    series: 'D-2',
+    shortDesc: 'Flat utility paint brush range for general painting and surface coating.',
+    useCase: 'General painting, touch-up work, wall and surface coating, and maintenance painting.',
+    sizes: ['TBD'],
+    image: '/products/d-2-series.webp',
+    svgType: 'flat-brush',
+  }),
+  brushProduct({
+    id: 'classic-series',
+    name: 'Deep Brush Classic Series Paint Brush',
+    series: 'Classic',
+    shortDesc: 'Ergonomic flat paint brush range for broad-area and contractor applications.',
+    useCase: 'General wall painting, surface coating, broad-area painting, and commercial use.',
+    sizes: ['TBD'],
+    image: '/products/classic-series.webp',
+    svgType: 'wide-brush',
+  }),
+  brushProduct({
+    id: 'jyoti-series',
+    name: 'Deep Brush JYOTI Series Precision Paint Brush',
+    series: 'JYOTI',
+    shortDesc: 'Precision narrow-surface brush family for edges, detail work and touch-ups.',
+    useCase: 'Narrow surfaces, edges, detail work, touch-up painting, and precision coating.',
+    sizes: ['TBD'],
+    image: '/products/jyoti-series.webp',
+    svgType: 'narrow-brush',
+  }),
+  brushProduct({
+    id: 'xxx-series',
+    name: 'Deep Brush XXX Series Paint Brush',
+    series: 'XXX',
+    shortDesc: 'Narrow-format utility brush family for precision and edge applications.',
+    useCase: 'Narrow surface painting, edge work, touch-up applications, and utility painting.',
+    sizes: ['TBD'],
+    image: '/products/xxx-series.webp',
+    svgType: 'narrow-brush',
+  }),
+  brushProduct({
+    id: 'star-series',
+    name: 'Deep Brush STAR Series Heavy-Duty Paint Brush',
+    series: 'STAR',
+    shortDesc: 'Commercial heavy-duty wall brush family for broad surface coverage.',
+    useCase: 'Wall painting, commercial painting, broad surface coating, and contractor applications.',
+    sizes: ['TBD'],
+    image: '/products/star-series.webp',
+    svgType: 'wide-brush',
+    popular: true,
+  }),
+  brushProduct({
+    id: 'dom-series',
+    name: 'Deep Brush DOM Series Paint Brush',
+    series: 'DOM',
+    shortDesc: 'Commercial wall paint brush family for broad-area surface coating.',
+    useCase: 'Wall painting, commercial painting, general surface coating, and contractor use.',
+    sizes: ['TBD'],
+    image: '/products/dom-series.webp',
+    svgType: 'wide-brush',
+  }),
+  brushProduct({
+    id: 'd-111-series',
+    name: 'Deep Brush D-111 Series Paint Brush',
+    series: 'D-111',
+    shortDesc: 'Commercial wall brush family with broad flat heads for high-coverage work.',
+    useCase: 'Wall painting, broad surface application, commercial painting, and contractor use.',
+    sizes: ['TBD'],
+    image: '/products/d-111-series.webp',
+    svgType: 'wide-brush',
+  }),
+  brushProduct({
+    id: 'd-10-series',
+    name: 'Deep Brush D-10 Series Paint Brush',
+    series: 'D-10',
+    shortDesc: 'Heavy-duty broad-format brush family for commercial and utility applications.',
+    useCase: 'Wall painting, commercial painting, broad-area coating, and contractor applications.',
+    sizes: ['TBD'],
+    image: '/products/d-10-series.webp',
+    svgType: 'wide-brush',
+  }),
+  brushProduct({
+    id: 'jumbo-series',
+    name: 'Deep Brush JUMBO Series Extra-Wide Paint Brush',
+    series: 'JUMBO',
+    shortDesc: 'Extra-wide brush family designed for large-surface and high-coverage painting.',
+    useCase: 'Large wall areas, broad surface coating, commercial painting, and contractor applications.',
+    sizes: ['5"+'],
+    image: '/products/jumbo-series.webp',
+    svgType: 'jumbo-brush',
+    popular: true,
+  }),
 
+  // Roller Brushes
   // Roller Brushes
   {
     id: 'polyamide-roller',
